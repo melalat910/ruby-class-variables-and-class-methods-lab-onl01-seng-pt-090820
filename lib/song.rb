@@ -68,5 +68,4 @@ class Song
         #return unique hash of genres
         @@genres.uniq
     end
-end 
-      
+end
