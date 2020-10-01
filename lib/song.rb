@@ -16,5 +16,17 @@ class Song
         @name = name
         @artist = artist
         @genre = genre
-end
+        key = genre;
+       if @@genre_count.has_key?(key)
+           @@genre_count[key] = @@genre_count[key] + 1
+       else
+           @@genre_count[key] = 1
+       end
+
+      key = artist
+       if @@artist_count.has_key?(key)
+          @@artist_count[key] = @@artist_count[key] + 1
+       else
+          @@artist_count[key] = 1
+ end
 end
