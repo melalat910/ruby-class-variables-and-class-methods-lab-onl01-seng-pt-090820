@@ -1,7 +1,11 @@
+require 'pry'
 class Song
-  attr_accessor  :name, :artist, :genre
 
-  @@count = 0;  #total songs created
+
+    attr_accessor :name, :artist, :genre
+
+    #class variables
+    @@count = 0;  #total songs created
     @@genres = []; #array of genres
     @@artists = []; #array of unique artists
     @@genre_count = {}; #hash of genre and number of songs in genre created
@@ -13,22 +17,32 @@ class Song
         @@genres << genre;
         @@artists << artist
 
+        #Setup instance variables
         @name = name
         @artist = artist
         @genre = genre
-        key = genre;
-       if @@genre_count.has_key?(key)
-           @@genre_count[key] = @@genre_count[key] + 1
-       else
-           @@genre_count[key] = 1
-       end
 
-      key = artist
-       if @@artist_count.has_key?(key)
-          @@artist_count[key] = @@artist_count[key] + 1
-       else
-          @@artist_count[key] = 1
-          def self.artists
+        #would like to put these in writer methods
+        #however the initialize is not calling my
+        #write methods - dont know why
+
+        #Setup Class hashes
+        key = genre;
+        if @@genre_count.has_key?(key)
+            @@genre_count[key] = @@genre_count[key] + 1
+        else
+            @@genre_count[key] = 1
+        end
+
+       key = artist
+        if @@artist_count.has_key?(key)
+           @@artist_count[key] = @@artist_count[key] + 1
+        else
+            @@artist_count[key] = 1
+        end
+    end
+
+    def self.artists
         #return only a unique array of artists
         @@artists.uniq
     end
@@ -53,7 +67,6 @@ class Song
     def self.genres
         #return unique hash of genres
         @@genres.uniq
-   end
-  end
- end
-end
+    end
+end 
+      
