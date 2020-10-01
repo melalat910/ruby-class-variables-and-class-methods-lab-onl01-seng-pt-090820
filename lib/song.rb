@@ -53,6 +53,7 @@ class Song
     def self.genres
         #return unique hash of genres
         @@genres.uniq
+   end
   end
  end
 end
