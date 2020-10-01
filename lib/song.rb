@@ -28,5 +28,30 @@ class Song
           @@artist_count[key] = @@artist_count[key] + 1
        else
           @@artist_count[key] = 1
+          def self.artists
+        #return only a unique array of artists
+        @@artists.uniq
+    end
+
+    def self.artist_count()
+        #puts ("Artist_count:  #{@@artist_count}")
+        return @@artist_count
+    end
+
+
+    def self.genre_count
+        #return the hash of genres
+       @@genre_count
+    end
+
+    def self.count
+        #return the count of Songs from all artists
+        @@count
+    end
+
+
+    def self.genres
+        #return unique hash of genres
+        @@genres.uniq
  end
 end
